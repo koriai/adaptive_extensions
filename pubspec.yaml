@@ -1,0 +1,19 @@
+name: adaptive_extensions
+description: Based on material widgets, this package provides some simple adaptive conversions to Cupertino widgets.
+version: 0.0.1
+homepage: www.koriai.com
+
+environment:
+  sdk: '>=3.2.2 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
