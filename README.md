@@ -18,6 +18,14 @@ know whether this package might be useful for them.
 
 Provides simple extensions for material widgets.
 
+|Widget|Material|Cupertino|adaptive_extensions|
+|---|---|---|---|
+|TextButton|TextButton()|CupertinoButton()|TextButton().adaptive()|
+|TextButton with icon|TextButton.icon()|CupertinoButton()|TextButton().adaptive(icon:Icon)|
+|FilledButton|FilledButton()|CupertinoButton.filled()|FilledButton().adaptive()|
+|FilledButton with icon|FilledButton.icon()|CupertinoButton.filled()|FilledButton().adaptive(icon:Icon)|
+|ListTile|ListTile()|CupertinoListTile()|ListTile().adaptive()|
+
 ## Installation
 
 Provides simple extensions for material widgets.

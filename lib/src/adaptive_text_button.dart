@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'utils/axis_alignment.dart';
 
-extension TextButtonAdaptive on TextButton {
+extension AdaptiveTextButton on TextButton {
   /// [Platform.isIOS] || [Platform.isMacOS]
   /// [TextButton] => [CupertinoButton]
   ///
@@ -24,15 +24,19 @@ extension TextButtonAdaptive on TextButton {
     BorderRadius? borderRadius = const BorderRadius.all(Radius.circular(8.0)),
     Alignment alignment = Alignment.center,
     double? gap = 8.0,
+    bool forceCupertino = false,
+    bool forceMaterial = false,
   }) {
     assert(child.runtimeType == Text);
+    assert(!(forceCupertino && forceMaterial));
 
     /// convert align
     final AxisAlign axisAlign = alignmentToRightRowAxisAlign(alignment);
     final MainAxisAlignment mainAxisAlignment = axisAlign.mainAxisAlignment;
     final CrossAxisAlignment crossAxisAlignment = axisAlign.crossAxisAlignment;
 
-    if (Platform.isIOS || Platform.isMacOS) {
+    if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
+        !forceMaterial) {
       final buttonChild = (icon != null)
           ? Row(
               mainAxisAlignment: mainAxisAlignment,
