@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'utils/axis_alignment.dart';
+import '../utils/axis_alignment.dart';
 
 extension AdaptiveFilledButton on FilledButton {
   /// [Platform.isIOS] || [Platform.isMacOS]

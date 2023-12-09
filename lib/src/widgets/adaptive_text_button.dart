@@ -3,7 +3,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'utils/axis_alignment.dart';
+import '../utils/axis_alignment.dart';
 
 extension AdaptiveTextButton on TextButton {
   /// [Platform.isIOS] || [Platform.isMacOS]

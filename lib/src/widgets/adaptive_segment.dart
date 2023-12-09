@@ -1,11 +1,9 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'utils/axis_alignment.dart';
-
+///
 extension AdaptiveSegmentedButton on SegmentedButton {
   Widget adaptive({
     bool forceCupertino = false,
