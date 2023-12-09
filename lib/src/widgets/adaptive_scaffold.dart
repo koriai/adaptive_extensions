@@ -1,32 +1,30 @@
 import 'dart:io' show Platform;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ///
 /// This is Snackbar Themedata
 /// Add this on your Theme
 ///
-/// Like Toast
-/// ㄴ[BorderRadius.circular(99),]
-/// ㄴ[SnackBarBehavior.floating]
 /// ```dart
 /// Theme(
 ///   SnackbarTheme: SnackBarThemeData().adaptive
 /// )
 /// ```
-extension AdaptiveSnackBarThemeData on SnackBarThemeData {
-  SnackBarThemeData adaptive({
+extension AdaptiveTabScaffold on Scaffold {
+  Widget adaptive({
     bool forceCupertino = false,
     bool forceMaterial = false,
   }) {
+    assert(bottomNavigationBar != null, '');
+    assert(!(forceCupertino && forceMaterial), '');
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {
-      return SnackBarThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(99),
-        ),
-        behavior: SnackBarBehavior.floating,
-      );
+      // return CupertinoTabScaffold(
+      //   tabBar:
+      //   tabBuilder:
+      //   );
     }
     return this;
   }

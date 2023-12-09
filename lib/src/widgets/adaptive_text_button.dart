@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../utils/axis_alignment.dart';
 
@@ -21,14 +21,14 @@ extension AdaptiveTextButton on TextButton {
     Color disabledColor = CupertinoColors.quaternarySystemFill,
     double? minSize = kMinInteractiveDimensionCupertino,
     double? pressedOpacity = 0.4,
-    BorderRadius? borderRadius = const BorderRadius.all(Radius.circular(8.0)),
+    BorderRadius? borderRadius = const BorderRadius.all(Radius.circular(8)),
     Alignment alignment = Alignment.center,
     double? gap = 8.0,
     bool forceCupertino = false,
     bool forceMaterial = false,
   }) {
-    assert(child.runtimeType == Text);
-    assert(!(forceCupertino && forceMaterial));
+    assert(child.runtimeType == Text, 'runtype error');
+    assert(!(forceCupertino && forceMaterial), 'Cannot make both true');
 
     /// convert align
     final AxisAlign axisAlign = alignmentToRightRowAxisAlign(alignment);
@@ -42,10 +42,11 @@ extension AdaptiveTextButton on TextButton {
               mainAxisAlignment: mainAxisAlignment,
               crossAxisAlignment: crossAxisAlignment,
               children: <Widget>[
-                  icon,
-                  SizedBox(width: gap),
-                  child!,
-                ])
+                icon,
+                SizedBox(width: gap),
+                child!,
+              ],
+            )
           : child!;
 
       return CupertinoButton(

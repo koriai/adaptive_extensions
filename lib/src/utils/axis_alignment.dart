@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AxisAlign {
-  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
-  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
-
   AxisAlign(
     mainAxisAlignment,
     crossAxisAlignment,
   );
+  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
+  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
 }
 
 /// return MainAxisAlign & CrossAxisAlign

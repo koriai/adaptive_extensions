@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'dart:io' show Platform;
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 extension AdaptiveListTile on ListTile {
   /// [Platform.isIOS] || [Platform.isMacOS]
@@ -14,33 +15,34 @@ extension AdaptiveListTile on ListTile {
     bool forceMaterial = false,
     bool isNotched = false,
   }) {
-    assert(title != null);
-    assert(!(forceCupertino && forceMaterial));
+    assert(title != null, '');
+    assert(!(forceCupertino && forceMaterial), '');
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {
       return CupertinoTheme(
-          data: cupertinoThemeData ?? const CupertinoThemeData(),
-          child: isNotched
-              ? CupertinoListTile.notched(
-                  title: title!,
-                  subtitle: subtitle,
-                  leading: leading,
-                  trailing: trailing,
-                  onTap: onTap,
-                  additionalInfo: additionalInfo,
-                  backgroundColor: backgroundColor ?? tileColor,
-                  backgroundColorActivated: backgroundColorActivated,
-                )
-              : CupertinoListTile(
-                  title: title!,
-                  subtitle: subtitle,
-                  leading: leading,
-                  trailing: trailing,
-                  onTap: onTap,
-                  additionalInfo: additionalInfo,
-                  backgroundColor: backgroundColor ?? tileColor,
-                  backgroundColorActivated: backgroundColorActivated,
-                ));
+        data: cupertinoThemeData ?? const CupertinoThemeData(),
+        child: isNotched
+            ? CupertinoListTile.notched(
+                title: title!,
+                subtitle: subtitle,
+                leading: leading,
+                trailing: trailing,
+                onTap: onTap,
+                additionalInfo: additionalInfo,
+                backgroundColor: backgroundColor ?? tileColor,
+                backgroundColorActivated: backgroundColorActivated,
+              )
+            : CupertinoListTile(
+                title: title!,
+                subtitle: subtitle,
+                leading: leading,
+                trailing: trailing,
+                onTap: onTap,
+                additionalInfo: additionalInfo,
+                backgroundColor: backgroundColor ?? tileColor,
+                backgroundColorActivated: backgroundColorActivated,
+              ),
+      );
     } else {
       // return listtile itself
       return this;

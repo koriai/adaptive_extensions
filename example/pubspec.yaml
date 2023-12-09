@@ -1,4 +1,4 @@
-name: example
+name: adaptive_example
 description: "Example app for package adaptive_extensions"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
