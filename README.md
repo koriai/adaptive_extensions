@@ -11,10 +11,9 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-## Features
+## Screencast
 
-Easy to cherry picking!!
-if you want to get only part of the package, all you need to do is copy, paste, and cutomize for your use!
+![<img src="./images/screencast1.gif" width="497">](images/screencast1.gif)
 
 ## Basic Concept
 
@@ -33,6 +32,16 @@ extension Adaptive on Material {
 }
 ```
 
+## Example
+
+```dart
+TextButton(
+    onPressed: showAdaptiveSnackbar,
+    child: const Text('Adaptive TextButton'),
+    ).adaptive(),
+),
+```
+
 ## Available Widgets
 
 |Widget|Material|Cupertino|adaptive_extensions|
@@ -42,15 +51,18 @@ extension Adaptive on Material {
 |FilledButton|FilledButton|CupertinoButton.filled|FilledButton.adaptive|
 |FilledButton with icon|FilledButton.icon|CupertinoButton.filled|FilledButton.adaptive(icon:Icon)|
 |ListTile|ListTile|CupertinoListTile|ListTile.adaptive|
-|Segment Button|SegmentedButton|CupertinoSegmentedControl|SegmentedButton.adaptive
-|SnackBar or Toast|SnackBar|Toast-like SnackBar|SnackBar.adaptive
+|SnackBar or Toast|SnackBar|Toast-like SnackBar|SnackBar.adaptive|
 
+on working: segmentbutton
+
+<!-- |Segment Button|SegmentedButton|CupertinoSegmentedControl|SegmentedButton.adaptive| -->
 
 ## Available ThemeData
 
 |Theme|Material|Cupertino|adaptive_extensions|
 |---|---|---|---|
 |SnackBar or Toast|SnackBarThemeData|Toast-like SnackBarThemeData|SnackBarThemeData.adaptive
+|AppBarTheme|AppBarTheme|Cupertino-like AppBarTheme|AppBarTheme.adaptive
 
 ## Installation
 

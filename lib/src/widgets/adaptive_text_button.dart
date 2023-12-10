@@ -10,7 +10,7 @@ extension AdaptiveTextButton on TextButton {
   /// [TextButton] => [CupertinoButton]
   ///
   ///
-  /// To make [Button] with [Icon]
+  /// To make Button with [Icon]
   /// Use [adaptive(icon:Icon)] instead of [TextButton.icon]
   ///
   /// [gap] : between icon & widget
