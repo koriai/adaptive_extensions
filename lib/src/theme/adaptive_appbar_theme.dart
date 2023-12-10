@@ -13,12 +13,10 @@ extension AdaptiveAppBarThemeData on AppBarTheme {
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {
       return copyWith(
-        surfaceTintColor:
-            Platform.isIOS ? Colors.transparent : surfaceTintColor,
-        shadowColor:
-            Platform.isIOS ? CupertinoColors.darkBackgroundGray : shadowColor,
-        scrolledUnderElevation: Platform.isIOS ? .1 : scrolledUnderElevation,
-        toolbarHeight: Platform.isIOS ? 44 : toolbarHeight,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: CupertinoColors.darkBackgroundGray,
+        scrolledUnderElevation: .1,
+        toolbarHeight: 44,
       );
     }
     return this;

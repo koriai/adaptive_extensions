@@ -14,7 +14,11 @@ extension AdaptiveTabBar on BottomNavigationBar {
   }) {
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {
-      return CupertinoTabBar(items: items);
+      return CupertinoTabBar(
+        items: items,
+        onTap: onTap,
+        currentIndex: currentIndex,
+      );
     }
     return this;
   }
