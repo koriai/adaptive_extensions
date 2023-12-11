@@ -13,7 +13,7 @@ and the Flutter guide for
 
 ## Screencast
 
-![<img src="./images/screencast1.gif" width="497">](images/screencast1.gif)
+![screenshot1](https://github.com/koriai/adaptive_extensions/blob/main/images/screencast1.gif)
 
 ## Basic Concept
 
