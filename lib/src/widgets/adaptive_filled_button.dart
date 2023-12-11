@@ -51,16 +51,14 @@ extension AdaptiveFilledButton on FilledButton {
     assert(!(forceCupertino && forceMaterial), '');
 
     /// convert align
-    final AxisAlign axisAlign = alignmentToRightRowAxisAlign(alignment);
-    final MainAxisAlignment mainAxisAlignment = axisAlign.mainAxisAlignment;
-    final CrossAxisAlignment crossAxisAlignment = axisAlign.crossAxisAlignment;
+    final axisAlign = alignmentToRightRowAxisAlign(alignment);
 
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {
       final buttonChild = (icon != null)
           ? Row(
-              mainAxisAlignment: mainAxisAlignment,
-              crossAxisAlignment: crossAxisAlignment,
+              mainAxisAlignment: axisAlign.main,
+              crossAxisAlignment: axisAlign.cross,
               children: <Widget>[
                 icon,
                 SizedBox(width: gap),

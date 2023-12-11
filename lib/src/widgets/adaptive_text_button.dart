@@ -31,9 +31,9 @@ extension AdaptiveTextButton on TextButton {
     assert(!(forceCupertino && forceMaterial), 'Cannot make both true');
 
     /// convert align
-    final AxisAlign axisAlign = alignmentToRightRowAxisAlign(alignment);
-    final MainAxisAlignment mainAxisAlignment = axisAlign.mainAxisAlignment;
-    final CrossAxisAlignment crossAxisAlignment = axisAlign.crossAxisAlignment;
+    final axisAlign = alignmentToRightRowAxisAlign(alignment);
+    final MainAxisAlignment mainAxisAlignment = axisAlign.main;
+    final CrossAxisAlignment crossAxisAlignment = axisAlign.cross;
 
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {

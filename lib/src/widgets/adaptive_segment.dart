@@ -15,11 +15,11 @@ extension AdaptiveSegmentedButton on SegmentedButton {
         for (final ButtonSegment buttonSegment in segments)
           buttonSegment.value as Object: buttonSegment.icon!,
       };
-      for (final segment in cupertinoSegments.entries) {
-        // if (selected.contains(segment.key)) {
-        //   cupertinoSegments.add(segment);
-        // }
-      }
+      // for (final segment in cupertinoSegments.entries) {
+      // if (selected.contains(segment.key)) {
+      //   cupertinoSegments.add(segment);
+      // }
+      // }
 
       return CupertinoSegmentedControl<Object>(
         groupValue: selected.first,
