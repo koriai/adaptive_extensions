@@ -11,28 +11,10 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-## Screencast
+# Add adaptive() after Material widget
 
-![screenshot1](https://github.com/koriai/adaptive_extensions/blob/main/images/screencast1.gif)
-
-## Basic Concept
-
-This package is composed with extentions of MaterialWidget.
-So these extensions are return material widget as 'this'.
-
-```dart
-extension Adaptive on Material {
-    dynamic adaptive({}){
-        if (forceCupertino || Platform.isIOS || Platform.isMacOS) {
-            return Cupertino;
-        } else {
-            return this; // Material;
-        }
-    }
-}
-```
-
-## Example
+Inspired by the build-in adaptive widget like CircularProgressIndicator.adaptive().
+All you need to get Cupertino widgets, add adaptive() after Material Widget.
 
 ```dart
 TextButton(
@@ -42,31 +24,9 @@ TextButton(
 ),
 ```
 
-## Available Widgets
+## Screencast
 
-|Widget|Material|Cupertino|adaptive_extensions|
-|---|---|---|---|
-|TextButton|TextButton|CupertinoButton|TextButton.adaptive|
-|TextButton with icon|TextButton.icon|CupertinoButton|TextButton.adaptive(icon:Icon)|
-|FilledButton|FilledButton|CupertinoButton.filled|FilledButton.adaptive|
-|FilledButton with icon|FilledButton.icon|CupertinoButton.filled|FilledButton.adaptive(icon:Icon)|
-|ListTile|ListTile|CupertinoListTile|ListTile.adaptive|
-|SnackBar or Toast|SnackBar|Toast-like SnackBar|SnackBar.adaptive|
-
-on working: segmentbutton
-
-<!-- |Segment Button|SegmentedButton|CupertinoSegmentedControl|SegmentedButton.adaptive| -->
-
-## Available ThemeData
-
-|Theme|Material|Cupertino|adaptive_extensions|
-|---|---|---|---|
-|SnackBar or Toast|SnackBarThemeData|Toast-like SnackBarThemeData|SnackBarThemeData.adaptive
-|AppBarTheme|AppBarTheme|Cupertino-like AppBarTheme|AppBarTheme.adaptive
-
-## Installation
-
-Provides simple extensions for material widgets.
+![screenshot1](https://github.com/koriai/adaptive_extensions/blob/main/images/screencast1.gif)
 
 ## Usage
 
@@ -82,7 +42,46 @@ final FilledButton filledButton = FilledButton(your code).adaptive();
 final textbutton = TextButton(your code).adaptive(icon:Icon(Icons.abc));
 ```
 
-## Additional
+## Design Concept
+
+This package is composed with extentions of MaterialWidget.
+So these extensions are return material widget 'this'.
+
+```dart
+extension Adaptive on Material {
+    dynamic adaptive({}){
+        if (forceCupertino || Platform.isIOS || Platform.isMacOS) {
+            return Cupertino;
+        } else {
+            return this; // Material;
+        }
+    }
+}
+```
+
+## Available Widgets
+
+|Widget|Material|Cupertino|adaptive_extensions|
+|---|---|---|---|
+|TextButton|TextButton|CupertinoButton|TextButton.adaptive|
+|TextButton with icon|TextButton.icon|CupertinoButton|TextButton.adaptive(icon:Icon)|
+|FilledButton|FilledButton|CupertinoButton.filled|FilledButton.adaptive|
+|FilledButton with icon|FilledButton.icon|CupertinoButton.filled|FilledButton.adaptive(icon:Icon)|
+|ListTile|ListTile|CupertinoListTile|ListTile.adaptive|
+|SnackBar or Toast|SnackBar|Toast-like SnackBar|SnackBar.adaptive|
+
+on progress: segmentbutton
+
+<!-- |Segment Button|SegmentedButton|CupertinoSegmentedControl|SegmentedButton.adaptive| -->
+
+## Available ThemeData
+
+|Theme|Material|Cupertino|adaptive_extensions|
+|---|---|---|---|
+|SnackBar or Toast|SnackBarThemeData|Toast-like SnackBarThemeData|SnackBarThemeData.adaptive
+|AppBarTheme|AppBarTheme|Cupertino-like AppBarTheme|AppBarTheme.adaptive
+
+## See also
 
 If you are looking for Switch,Slider,CircularProgressIndicator,CheckBox, or Radio, visit the Official document [Automatic platform adaptations](https://docs.flutter.dev/platform-integration/platform-adaptations).
 

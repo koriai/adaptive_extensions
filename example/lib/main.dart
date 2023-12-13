@@ -12,6 +12,8 @@ void main() {
 
 enum Calendar { day, week, month, year }
 
+enum Pages { favorites, recents, contacts, keypad }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -37,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool forceCupertino = Platform.isIOS;
   Calendar calendarView = Calendar.day;
   GlobalKey bottomNaviKey = GlobalKey(debugLabel: 'bottomNavi');
+  String? title;
 
   int bottomIndex = 0;
 
@@ -64,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+          title: Text(title ?? widget.title),
           actions: [
             Icon(forceCupertino ? Icons.apple : Icons.android),
             Switch.adaptive(
@@ -81,7 +84,10 @@ class _MyHomePageState extends State<MyHomePage> {
           key: bottomNaviKey,
           currentIndex: bottomIndex,
           type: BottomNavigationBarType.fixed,
-          onTap: (idx) => setState(() => bottomIndex = idx),
+          onTap: (idx) => setState(() {
+            title = Pages.values[idx].toString();
+            bottomIndex = idx;
+          }),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.star_fill),
@@ -214,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 8),
           ],
         ),
-      ),
+      ).adaptive(),
     );
   }
 }

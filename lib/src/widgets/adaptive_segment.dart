@@ -3,8 +3,21 @@ import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Return [CupertinoSegmentedControl] on [Platform.isIOS], [Platform.isMacOS]
 ///
+/// ```dart
+/// SegmentedButton(
+///   SegmentedButton values
+/// ).adaptive(CupertinoSegmentedControl values)
+/// ```
 extension AdaptiveSegmentedButton on SegmentedButton {
+  ///```dart
+  ///
+  /// if (Platform.isIOS || Platform.isMacOS) {
+  ///   return SegmentedButton
+  /// else
+  ///   return CupertinoSegmentedControl
+  ///```
   Widget adaptive({
     bool forceCupertino = false,
     bool forceMaterial = false,

@@ -6,30 +6,44 @@ import 'package:flutter/material.dart';
 
 import '../utils/axis_alignment.dart';
 
+/// Return [CupertinoButton] on [Platform.isIOS], [Platform.isMacOS]
+///
+/// [Platform.isIOS] || [Platform.isMacOS]
+/// [FilledButton] => [CupertinoButton.filled]
+///
+///
+/// Use [adaptive(icon:Icon)] instead of [FilledButton.icon]
+///
+/// Except icon, all parameters for [adaptive] is applied to cupertino
+///  widget only.
+///
+/// EdgeInsetsGeometry? padding,
+/// bool isGray = false,
+/// Color? color,
+/// Color disabledColor = CupertinoColors.quaternarySystemFill,
+/// double? minSize = kMinInteractiveDimensionCupertino,
+/// double? pressedOpacity = 0.4,
+/// BorderRadius? borderRadius = const BorderRadius.all(Radius.circular(8.0)),
+/// Alignment alignment = Alignment.center,
+/// double gap = 8,
+/// CupertinoThemeData cupertinoThemeData = const CupertinoThemeData(),
+/// bool forceCupertino = false,
+/// bool forceMaterial = false,
 extension AdaptiveFilledButton on FilledButton {
-  /// [Platform.isIOS] || [Platform.isMacOS]
-  /// [FilledButton] => [CupertinoButton.filled]
   ///
   ///
-  /// Use [adaptive(icon:Icon)] instead of [FilledButton.icon]
-  ///
-  /// Except icon, all parameters for [adaptive] is applied to cupertino
-  ///  widget only.
-  ///
-  /// [padding] : [CupertinoButton]'s padding
-  /// [color] :
-  /// EdgeInsetsGeometry? padding,
-  /// bool isGray = false,
-  /// Color? color,
-  /// Color disabledColor = CupertinoColors.quaternarySystemFill,
-  /// double? minSize = kMinInteractiveDimensionCupertino,
-  /// double? pressedOpacity = 0.4,
-  /// BorderRadius? borderRadius = const BorderRadius.all(Radius.circular(8.0)),
-  /// Alignment alignment = Alignment.center,
-  /// double gap = 8,
-  /// CupertinoThemeData cupertinoThemeData = const CupertinoThemeData(),
-  /// bool forceCupertino = false,
-  /// bool forceMaterial = false,
+  /// ```dart
+  /// if ([Platform.isIOS] || [Platform.isMacOS])
+  ///   if (icon != null) {
+  ///       return CupertinoButton.filled with icon
+  ///     }
+  ///   return CupertinoButton.filled
+  /// else{
+  ///   if (icon != null) {
+  ///       return FilledButton.icon
+  ///     }
+  ///   return FilledButton}
+  /// ```
   Widget adaptive({
     Widget? icon,
     AsyncCallback? asyncCallback,
