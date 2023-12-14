@@ -9,9 +9,9 @@ class TabScaffoldApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const CupertinoApp(
-      theme: CupertinoThemeData(brightness: Brightness.light),
-      home: TabScaffoldExample(),
-    );
+        theme: CupertinoThemeData(brightness: Brightness.light),
+        home: TabScaffoldExample(),
+      );
 }
 
 class TabScaffoldExample extends StatefulWidget {
@@ -24,48 +24,48 @@ class TabScaffoldExample extends StatefulWidget {
 class _TabScaffoldExampleState extends State<TabScaffoldExample> {
   @override
   Widget build(BuildContext context) => CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search_circle_fill),
-            label: 'Explore',
-          ),
-        ],
-      ),
-      tabBuilder: (BuildContext context, int index) => CupertinoTabView(
+        tabBar: CupertinoTabBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.search_circle_fill),
+              label: 'Explore',
+            ),
+          ],
+        ),
+        tabBuilder: (BuildContext context, int index) => CupertinoTabView(
           builder: (BuildContext context) => CupertinoPageScaffold(
-              navigationBar: CupertinoNavigationBar(
-                middle: Text('Page 1 of tab $index'),
-              ),
-              child: Center(
-                child: CupertinoButton(
-                  child: const Text('Next page'),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute<void>(
-                        builder: (BuildContext context) => CupertinoPageScaffold(
-                            navigationBar: CupertinoNavigationBar(
-                              middle: Text('Page 2 of tab $index'),
-                            ),
-                            child: Center(
-                              child: CupertinoButton(
-                                child: const Text('Back'),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ),
+            navigationBar: CupertinoNavigationBar(
+              middle: Text('Page 1 of tab $index'),
+            ),
+            child: Center(
+              child: CupertinoButton(
+                child: const Text('Next page'),
+                onPressed: () async {
+                  await Navigator.of(context).push(
+                    CupertinoPageRoute<void>(
+                      builder: (BuildContext context) => CupertinoPageScaffold(
+                        navigationBar: CupertinoNavigationBar(
+                          middle: Text('Page 2 of tab $index'),
+                        ),
+                        child: Center(
+                          child: CupertinoButton(
+                            child: const Text('Back'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
                           ),
+                        ),
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
             ),
+          ),
         ),
-    );
+      );
 }
