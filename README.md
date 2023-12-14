@@ -28,6 +28,8 @@ TextButton(
 
 ![screenshot1](https://github.com/koriai/adaptive_extensions/blob/main/images/screencast1.gif)
 
+Visit [https://dartpad.dev/?id=2f197147d498b0dca1bc9d6fe28ee7de](https://dartpad.dev/?id=2f197147d498b0dca1bc9d6fe28ee7de)
+
 ## Usage
 
 Find material widgets and add adaptive() after them.

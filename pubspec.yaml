@@ -1,7 +1,7 @@
 name: adaptive_extensions
 description: >-
   Material Widgets to Cupertino Widget, this package provides some simple adaptive conversions to Cupertino.
-version: 0.0.2
+version: 0.0.3
 homepage: https://www.koriai.com
 
 environment:
