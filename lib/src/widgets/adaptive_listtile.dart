@@ -10,6 +10,18 @@ const EdgeInsetsDirectional _kPadding =
     EdgeInsetsDirectional.only(start: 20, end: 14);
 const double _kLeadingToTitle = 16;
 
+extension AdaptiveCupertinoListTile on CupertinoListTile {
+  Widget adaptive() {
+    if (!Platform.isIOS && !Platform.isMacOS) {
+      return ListTile(
+        title: title,
+        subtitle: subtitle,
+      );
+    }
+    return this;
+  }
+}
+
 /// Return [CupertinoListTile] on [Platform.isIOS], [Platform.isMacOS]
 ///
 /// ```dart

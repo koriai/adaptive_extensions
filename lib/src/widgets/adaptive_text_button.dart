@@ -5,6 +5,18 @@ import 'package:flutter/material.dart';
 
 import '../utils/axis_alignment.dart';
 
+extension AdaptiveCupertinoTextButton on CupertinoButton {
+  Widget adaptive() {
+    if (!Platform.isIOS && !Platform.isMacOS) {
+      return TextButton(
+        onPressed: onPressed,
+        child: child,
+      );
+    }
+    return this;
+  }
+}
+
 extension AdaptiveTextButton on TextButton {
   /// [Platform.isIOS] || [Platform.isMacOS]
   /// [TextButton] => [CupertinoButton]
