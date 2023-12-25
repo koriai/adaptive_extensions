@@ -30,6 +30,7 @@ extension AdaptiveListTile on ListTile {
     bool forceCupertino = false,
     bool forceMaterial = false,
     bool isNotched = false,
+    bool isChevron = false,
     EdgeInsetsDirectional padding = _kPadding,
     double leadingSize = _kLeadingSize,
     double leadingToTitle = _kLeadingToTitle,

@@ -26,27 +26,13 @@ extension AdaptiveScaffold on Scaffold {
     bool forceCupertino = false,
     bool forceMaterial = false,
   }) {
-    assert(
-      appBar != null || bottomNavigationBar != null,
-      'one of both must not null',
-    );
+    // assert(
+    //   appBar != null || bottomNavigationBar != null,
+    //   'one of both must not null',
+    // );
+
     if ((forceCupertino || Platform.isIOS || Platform.isMacOS) &&
         !forceMaterial) {
-      if (appBar != null) {
-        assert(appBar.runtimeType == AppBar, 'use Appbar type for appbar');
-        final inAppBar = appBar! as AppBar;
-        return CupertinoPageScaffold(
-          navigationBar: CupertinoNavigationBar(
-            leading: inAppBar.leading,
-            middle: inAppBar.title,
-            trailing: inAppBar.actions != null
-                ? Row(children: inAppBar.actions!)
-                : null,
-            previousPageTitle: previousPageTitle,
-          ),
-          child: body ?? const SizedBox(),
-        );
-      }
       if (bottomNavigationBar != null) {
         assert(
           bottomNavigationBar.runtimeType != BottomNavigationBar,
@@ -60,6 +46,21 @@ extension AdaptiveScaffold on Scaffold {
         return CupertinoTabScaffold(
           tabBar: bottomBar.adaptive() as CupertinoTabBar,
           tabBuilder: (BuildContext context, int index) => pages![index],
+        );
+      }
+      if (appBar != null) {
+        assert(appBar.runtimeType == AppBar, 'use Appbar type for appbar');
+        final inAppBar = appBar! as AppBar;
+        return CupertinoPageScaffold(
+          navigationBar: CupertinoNavigationBar(
+            leading: inAppBar.leading,
+            middle: inAppBar.title,
+            trailing: inAppBar.actions != null
+                ? Row(children: inAppBar.actions!)
+                : null,
+            previousPageTitle: previousPageTitle,
+          ),
+          child: body ?? const SizedBox(),
         );
       }
     }

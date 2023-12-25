@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Calendar calendarView = Calendar.day;
   GlobalKey bottomNaviKey = GlobalKey(debugLabel: 'bottomNavi');
   String? title;
+  // Sky _selectedSegment = Sky.midnight;
 
   int bottomIndex = 0;
 
@@ -125,7 +126,6 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: showAdaptiveSnackbar,
               child: const Text('Adaptive TextButton'),
             ).adaptive(
-              alignment: Alignment.bottomLeft,
               icon: Icon(forceCupertino ? Icons.apple : Icons.android),
               forceCupertino: forceCupertino,
               forceMaterial: !forceCupertino,
@@ -174,8 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(forceCupertino ? Icons.apple : Icons.android),
               title: const Text('Adaptive ListTile'),
               subtitle: const Text('Tab here to see snackbar'),
+              trailing: const CupertinoListTileChevron(),
               tileColor: Colors.yellow[200],
-              trailing: const Icon(Icons.play_arrow),
             ).adaptive(
               cupertinoThemeData: const CupertinoThemeData(
                 primaryColor: Colors.blue,
@@ -184,43 +184,94 @@ class _MyHomePageState extends State<MyHomePage> {
               forceMaterial: !forceCupertino,
             ),
             const SizedBox(height: 8),
-            SegmentedButton(
-              segments: const [
-                ButtonSegment<Calendar>(
-                  value: Calendar.day,
-                  label: Text('Day'),
-                  icon: Icon(Icons.calendar_view_day),
-                ),
-                ButtonSegment<Calendar>(
-                  value: Calendar.week,
-                  label: Text('Week'),
-                  icon: Icon(Icons.calendar_view_week),
-                ),
-                ButtonSegment<Calendar>(
-                  value: Calendar.month,
-                  label: Text('Month'),
-                  icon: Icon(Icons.calendar_view_month),
-                ),
-                ButtonSegment<Calendar>(
-                  value: Calendar.year,
-                  label: Text('Year'),
-                  icon: Icon(Icons.calendar_today),
-                ),
-              ],
-              selected: <Calendar>{calendarView},
-              onSelectionChanged: (Set<Calendar> newSelection) {
-                setState(() {
-                  calendarView = newSelection.first;
-                });
-              },
+            ListTile(
+              onTap: showAdaptiveSnackbar,
+              leading: Icon(forceCupertino ? Icons.apple : Icons.android),
+              title: const Text('Adaptive ListTile notched'),
+              subtitle: const Text('Tab here to see snackbar'),
+              trailing: const CupertinoListTileChevron(),
+              tileColor: Colors.yellow[200],
             ).adaptive(
+              cupertinoThemeData: const CupertinoThemeData(
+                primaryColor: Colors.blue,
+              ),
+              isNotched: true,
               forceCupertino: forceCupertino,
               forceMaterial: !forceCupertino,
             ),
             const SizedBox(height: 8),
+            // SegmentedButton(
+            //   segments: const [
+            //     ButtonSegment<Calendar>(
+            //       value: Calendar.day,
+            //       label: Text('Day'),
+            //       icon: Icon(Icons.calendar_view_day),
+            //     ),
+            //     ButtonSegment<Calendar>(
+            //       value: Calendar.week,
+            //       label: Text('Week'),
+            //       icon: Icon(Icons.calendar_view_week),
+            //     ),
+            //     ButtonSegment<Calendar>(
+            //       value: Calendar.month,
+            //       label: Text('Month'),
+            //       icon: Icon(Icons.calendar_view_month),
+            //     ),
+            //     ButtonSegment<Calendar>(
+            //       value: Calendar.year,
+            //       label: Text('Year'),
+            //       icon: Icon(Icons.calendar_today),
+            //     ),
+            //   ],
+            //   selected: <Calendar>{calendarView},
+            //   onSelectionChanged: (newSelection) {
+            //     setState(() {
+            //       calendarView = newSelection.first;
+            //     });
+            //   },
+            // ).adaptive(
+            //   forceCupertino: forceCupertino,
+            //   forceMaterial: !forceCupertino,
+            // ),
+            // const SizedBox(height: 8),
+            // CupertinoSegmentedControl<Sky>(
+            //   selectedColor: skyColors[_selectedSegment],
+            //   // Provide horizontal padding around the children.
+            //   padding: const EdgeInsets.symmetric(horizontal: 12),
+            //   // This represents a currently selected segmented control.
+            //   groupValue: _selectedSegment,
+            //   // Callback that sets the selected segmented control.
+            //   onValueChanged: (Sky value) {
+            //     setState(() {
+            //       _selectedSegment = value;
+            //     });
+            //   },
+            //   children: const <Sky, Widget>{
+            //     Sky.midnight: Padding(
+            //       padding: EdgeInsets.symmetric(horizontal: 20),
+            //       child: Text('Midnight'),
+            //     ),
+            //     Sky.viridian: Padding(
+            //       padding: EdgeInsets.symmetric(horizontal: 20),
+            //       child: Text('Viridian'),
+            //     ),
+            //     Sky.cerulean: Padding(
+            //       padding: EdgeInsets.symmetric(horizontal: 20),
+            //       child: Text('Cerulean'),
+            //     ),
+            //   },
+            // ),
           ],
         ),
       ).adaptive(),
     );
   }
 }
+
+// enum Sky { midnight, viridian, cerulean }
+
+// Map<Sky, Color> skyColors = <Sky, Color>{
+//   Sky.midnight: const Color(0xff191970),
+//   Sky.viridian: const Color(0xff40826d),
+//   Sky.cerulean: const Color(0xff007ba7),
+// };
